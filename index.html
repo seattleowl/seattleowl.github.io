@@ -34,6 +34,33 @@
 	<div id='header'>
 		<img src="images/s.png" width="100" height="100" id="logo" class="headeritem">
 	</div>
-	<iframe src="file:///Users/owen/Google%20Drive/mywon.org/_scraps/Platformer/platformer.html" id="display"></iframe>
+	<iframe src="Platformer/platformer.html" id="display"></iframe>
 </body>
+<script type="text/javascript">
+	var link = location.href;
+	function getHashtag() {
+		var index = 0
+		var inHash = false
+		var hash = ""
+		var letter = ''
+		for (var i = 0; i < link.length; i++) {
+			letter = link[index]
+			if (inHash) {
+				hash += letter
+			}
+
+			if (letter == '#') {
+				inHash = true
+			}
+			index += 1
+		}
+		return hash
+	}
+	var hashtag = getHashtag();
+
+	switch (hashtag) {
+		case 'owen':
+			document.getElementById('logo').width = 50 
+	}
+</script>
 </html>
