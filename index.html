@@ -16,12 +16,15 @@
 		}
 		.headeritem {
 			padding: 20px;
+			color: #f0f
+			underline: none;
 		}
 		#display {
 			padding-top: 40px;
 			/*
 			height: calc(100% - 150px);
 			background-color: #000;
+			this is a test
 			*/
 			height: 550px;
 			width: 100%;
@@ -33,8 +36,9 @@
 <body>
 	<div id='header'>
 		<img src="images/s.png" width="100" height="100" id="logo" class="headeritem">
+		<a onclick="switchView('games/platformer/')">Ya</a>
 	</div>
-	<iframe src="Platformer/platformer.html" id="display"></iframe>
+	<iframe src="games/platformer/" id="display"></iframe>
 </body>
 <script type="text/javascript">
 	var link = location.href;
@@ -55,6 +59,9 @@
 			index += 1
 		}
 		return hash
+	}
+	function switchView(sorce) {
+		document.getElementById('display').src = sorce
 	}
 	var hashtag = getHashtag();
 
