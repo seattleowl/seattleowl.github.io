@@ -55,7 +55,7 @@
 <body>
 	<div id='header'>
 		<img src="images/s.png" width="100" height="100" id="logo" class="headeritem">
-		<a onclick="showMenu('games')" onmouseout="" class="headeritem">Games</a>
+		<a onclick="toggleMenu('games')" onmouseout="" class="headeritem">Games</a>
 		<div id='games'>
 			<a onclick="switchView('https://scratch.mit.edu/projects/embed/191085706/'); hideMenu('games')">Polyfeld</a>
 			<a onclick="switchView('/games/platformer/'); hideMenu('games')">Platformer</a>
@@ -66,8 +66,12 @@
 </body>
 <script type="text/javascript">
 	var link = location.href;
-	function showMenu(id) {
-		document.getElementById(id).style.display = 'block';
+	function toggleMenu(id) {
+		if (document.getElementById(id).style.display == 'none') {
+			document.getElementById(id).style.display = 'block';
+		} else {
+			document.getElementById(id).style.display = 'none';
+		}
 	}
 	function hideMenu(id) {
 		document.getElementById(id).style.display = 'none';
