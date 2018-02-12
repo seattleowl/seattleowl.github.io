@@ -7,6 +7,7 @@
 			background-color: #eee;
 			padding: 0;
 			margin: 0;
+			font-family: Futura
 		}
 		#header {
 			background-color: white;
@@ -16,8 +17,9 @@
 		}
 		.headeritem {
 			padding: 20px;
-			color: #f0f
-			underline: none;
+			color: #341053;
+			text-decoration: none;
+			cursor: pointer;
 		}
 		#display {
 			padding-top: 40px;
@@ -30,17 +32,46 @@
 			border: none;
 			
 		}
+		a .headeritem {
+			margin-bottom: 50px;
+		}
+		#games {
+			display: none;
+			background-color: #f3f3f3;
+			border-radius: 4px;
+			box-shadow: 0px 0px 10px grey;
+			width: 200px;
+			position: relative;
+			left: 160px;
+			top: 5px;
+		}
+		#games a {
+			display: block;
+			padding: 15px 15px;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
 	<div id='header'>
 		<img src="images/s.png" width="100" height="100" id="logo" class="headeritem">
-		<a onclick="switchView('games/platformer/')">Ya</a>
+		<a onclick="showMenu('games')" onmouseout="" class="headeritem">Games</a>
+		<div id='games'>
+			<a onclick="switchView('https://scratch.mit.edu/projects/embed/191085706/'); hideMenu('games')">Polyfeld</a>
+			<a onclick="switchView('/games/platformer/'); hideMenu('games')">Platformer</a>
+			<a onclick="switchView('http://scratch.mit.edu/projects/embed/194792001/?autostart=false'); hideMenu('games')">The Scratches Boss Fight</a>
+		</div>
 	</div>
-	<iframe src="games/platformer/" id="display"></iframe>
+	<iframe src="games/platformer/index.html" id="display" allowtransparency="true"></iframe>
 </body>
 <script type="text/javascript">
 	var link = location.href;
+	function showMenu(id) {
+		document.getElementById(id).style.display = 'block';
+	}
+	function hideMenu(id) {
+		document.getElementById(id).style.display = 'none';
+	}
 	function getHashtag() {
 		var index = 0
 		var inHash = false
