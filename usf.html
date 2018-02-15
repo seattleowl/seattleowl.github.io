@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Unlock Files</title>
+</head>
+<body>
+	<h1>Please Enter The Password:</h1>
+	<input type="password" id="password"><br>
+	<button onclick="check(document.getElementById('password').value)">Unlock</button>
+</body>
+<script>
+	var toSendTo = false
+	window.addEventListener('message',function(event) {
+		if (event.origin == "seattleowl.com") {
+			if (event.data == 'seax78') {
+				toSendTo = event.source
+			}
+		}
+	},false);
+	function check(str) {
+		if (str == "seax78" && toSendTo != false) {
+			toSendTo.postMessage("unlock", "*")
+		}
+	}
+</script>
+</html>
