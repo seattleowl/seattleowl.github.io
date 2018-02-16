@@ -66,17 +66,16 @@
 	<iframe src="games/platformer/index.html" id="display" allowtransparency="true"></iframe>
 </body>
 <script type="text/javascript">
+	var popup;
 	function openUsf() {
-		var popup = window.open('/usf.html', '_blank', 'width=500, height=500')
-		popup.postMessage("seax78", "seattleowl.com");
+		popup = window.open('usf.html', '_blank', 'width=500, height=500');
+		setTimeout(function() { popup.postMessage("win", "*")}, 1000);
 	}
 
 	window.addEventListener('message',function(event) {
-		if (event.origin == "seattleowl.com") {
 			if (event.data == 'unlock') {
 				alert('unlocked!');
 			}
-		}
 	},false);
 
 	var link = location.href;

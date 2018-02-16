@@ -2,24 +2,50 @@
 <html>
 <head>
 	<title>Unlock Files</title>
+	<style type="text/css">
+		html {
+			font-family: "Gill Sans"
+		}
+
+		#lock {
+			position: relative;
+			left: 5px;
+			top: 37.5px;
+			z-index: 10;
+		}
+		#lap {
+			position: relative;
+			top: -50px;
+			z-index: 10;
+		}
+		#content {
+			background: linear-gradient(#3023AE, #4689D9);
+			width: 600px;
+		}
+	</style>
 </head>
 <body>
-	<h1>Please Enter The Password:</h1>
-	<input type="password" id="password"><br>
-	<button onclick="check(document.getElementById('password').value)">Unlock</button>
+	<div id='content'>
+		<h1>Please Enter The Password:</h1>
+		<div id='lap'>
+			<img src="images/Artboard.svg" id="lock">
+			<input type="password" id="password"><br>
+		</div>
+		<button onclick="check(document.getElementById('password').value)">Unlock</button>
+	</div>
 </body>
 <script>
 	var toSendTo = false
 	window.addEventListener('message',function(event) {
-		if (event.origin == "seattleowl.com") {
-			if (event.data == 'seax78') {
-				toSendTo = event.source
-			}
+		if (event.data == 'win') {
+			toSendTo = event.source
 		}
+		console.log(event.source)
 	},false);
 	function check(str) {
-		if (str == "seax78" && toSendTo != false) {
+		if (str == "seax78") {
 			toSendTo.postMessage("unlock", "*")
+			window.close()
 		}
 	}
 </script>
