@@ -41,7 +41,7 @@
 			border-radius: 4px;
 			box-shadow: 0px 0px 10px grey;
 			width: 200px;
-			position: relative;
+			position: absolute;
 			left: 160px;
 			top: 5px;
 		}
@@ -66,9 +66,32 @@
 	<iframe src="games/platformer/index.html" id="display" allowtransparency="true"></iframe>
 </body>
 <script type="text/javascript">
+	function setCookie(cname,cvalue,exdays) {
+	    var d = new Date();
+	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	    var expires = "expires=" + d.toGMTString();
+	    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(cname) {
+	    var name = cname + "=";
+	    var decodedCookie = decodeURIComponent(document.cookie);
+	    var ca = decodedCookie.split(';');
+	    for(var i = 0; i < ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0) == ' ') {
+	            c = c.substring(1);
+	        }
+	        if (c.indexOf(name) == 0) {
+	            return c.substring(name.length, c.length);
+	        }
+	    }
+	    return "";
+	}
+
 	var popup;
 	function openUsf() {
-		popup = window.open('usf.html', '_blank', 'width=500, height=500');
+		popup = window.open('usf.html', '_blank');
 		setTimeout(function() { popup.postMessage("win", "*")}, 1000);
 	}
 
@@ -113,8 +136,10 @@
 	var hashtag = getHashtag();
 
 	switch (hashtag) {
-		case 'owen':
-			document.getElementById('logo').width = 50 
+		case 'valt':
+			if (getCookie("valtOpen") == "true") {
+				location.href = "seattleowl.com/valt.html"
+			} 
 	}
 
 	window.add
