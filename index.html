@@ -98,6 +98,7 @@
 	window.addEventListener('message',function(event) {
 			if (event.data == 'unlock') {
 				alert('unlocked!');
+				setCookie("valtOpen", "true", 1)
 			}
 	},false);
 
@@ -134,7 +135,6 @@
 		document.getElementById('display').src = sorce
 	}
 	var hashtag = getHashtag();
-
 	switch (hashtag) {
 		case 'valt':
 			if (getCookie("valtOpen") == "true") {
