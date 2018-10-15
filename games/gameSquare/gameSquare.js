@@ -4,7 +4,6 @@ var gameSquareSystem = {
 	ctx: undefined,
 	update: function() {
 		GameSquare.updateLoopCallback()
-		gameSquareSystem.ctx.element.stlye = "cursor: " + gameSquareSystem.ctx.cursor + ";"
 		requestAnimationFrame(gameSquareSystem.update)
 	},
 
@@ -23,7 +22,6 @@ var GameSquare = {
 		constructor(canvasId) {
 			this.element = document.getElementById(canvasId)
 			this.context = this.element.getContext("2d")
-			this.cursor = "atuo"
 			gameSquareSystem.ctx = this
 		}
 
