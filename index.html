@@ -148,6 +148,11 @@
 			location.href = "/new.html"
 	}
 
-	window.add
+	var passwordEntered = {"p": false, "a": false, "c": false, "k": false, "g": false, "e": false, count: 0}
+
+	window.addEventListener("keydown", function(e) {
+		if (passwordEntered[e.key] == false && passwordEntered[passwordEntered.count] == e.key)
+	    	passwordEntered[e.key] = true;
+	})
 </script>
 </html>

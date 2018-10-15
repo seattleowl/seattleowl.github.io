@@ -46,4 +46,3 @@
 			var HTMLMenuItemElement = document.registerElement("seakit-ui-menu-item", {
 				prototype: MenuItemProto
 			})
-	
