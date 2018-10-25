@@ -109,6 +109,36 @@ var GameSquare = {
 		}
 	},
 
+	GameSquareSpriteObject: class {
+		constructor(props) {
+			this.ctx = gameSquareSystem.ctx.context
+			this.image = new Image()
+			this.image.src = props.url
+			this.url = props.url
+			this.width = props.width
+			this.height = props.height
+			this.x = props.x
+			this.y = props.y
+		}
+
+		render() {
+			this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
+		}
+
+		clone() {
+			return new GameSquare.GameSquareSpriteObject(this)
+		}
+
+		delete() {
+			this.x = ""
+			this.y = ""
+			this.width = 0
+			this.height = 0
+			this.image = ""
+			this.render = function() {}
+		}
+	},
+
 	GameSquareGroupObject: class {
 		constructor(members) {
 			this.members = members
