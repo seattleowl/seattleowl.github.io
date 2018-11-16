@@ -270,6 +270,16 @@ var GameSquare = {
 		}
 	},
 
+	GameSquareCostomTemplate: class {
+		constructor(nameOfClass) {
+			GameSquare[nameOfClass] = this
+		}
+
+		render() {
+			console.error("'render' function not defined.")
+		}
+	},
+
 	getInput: function(inputName) {
 		if (gameSquareSystem.input[inputName] == undefined) {
 			return false
@@ -279,6 +289,7 @@ var GameSquare = {
 	},
 
 	updateLoopCallback: function() {},
+
 	
 }
 
