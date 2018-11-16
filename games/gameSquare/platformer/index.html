@@ -12,29 +12,69 @@
 	var canvas = new GameSquare.GameSquareCanvasObject("draw")
 
 	// sprites
-	var star = new GameSquare.GameSquareSpriteObject({url: "star.svg", x: 10, y: 10, width: 50, height: 50})
-	var stars = new GameSquare.GameSquareGroupObject([])
-	stars.addMember(star.clone())
-	stars.addMember(star.clone())
-	stars.addMember(star.clone())
+	var player = new GameSquare.GameSquareSpriteObject({x: 10, y: 10, width: 30, height: 30, url: "playerR.svg"})
+	var ground = new GameSquare.GameSquareGroupObject([new GameSquare.GameSquareRectObject({x: 0, y: 450, width: 500, height: 500, color: "green"}), new GameSquare.GameSquareRectObject({x: 20, y: 400, width: 500, height: 500, color: "green"}), new GameSquare.GameSquareRectObject({x: 280, y: 300, width: 200, height: 50, color: "purple"}), ])
+	var star = new GameSquare.GameSquareSpriteObject({x: 330, y: 250, width: 30, height: 30, url: "star.svg"})
+
+	// Varibles
+	var playerData = {
+		xv: 0,
+		yv: 0,
+		onGround: false,
+		speed: 3,
+		accelerationSpeed: 0.5,
+	}
 
 	// update
 	GameSquare.updateLoopCallback = function() {
-		stars.forAll(function(clone) {
-			clone.x += Math.random() * 5
-			if (clone.x > 500) {
-				clone.x = 10
-				clone.y += 70
-			}
-			if (clone.y > 500) {
-				clone.x = 10
-				clone.y = 10
-			}
+		// Y
+		ground.forAll(function(block) {
+			var dir = player.colBlock(block)
+			if (dir == "bottom") {
+				playerData.onGround = true
+				playerData.yv = 0
+				if (GameSquare.getInput("ArrowUp")) {
+					playerData.yv = -15
+					playerData.onGround = false
+				}
+			} else if (dir == null) {
+				playerData.onGround = false
+		    }
 		})
+
+		if (playerData.onGround) {
+			playerData.yv = 0
+			//console.log('here')
+			if (GameSquare.getInput("ArrowUp")) {
+				playerData.yv = -15
+				playerData.onGround = false
+			}
+		} else {
+			playerData.yv++
+		}
+		player.y += playerData.yv
+
+		// X
+		if (GameSquare.getInput("ArrowRight")) {
+			if (playerData.xv < playerData.speed) {
+				playerData.xv += playerData.accelerationSpeed
+				player.swichCostume("playerR.svg")
+			}
+		}
+		if (GameSquare.getInput("ArrowLeft")) {
+			if (playerData.xv > (playerData.speed * -1)) {
+				playerData.xv -= playerData.accelerationSpeed
+				player.swichCostume("playerL.svg")
+			}
+		}
+		playerData.xv *= 0.95
+		player.x += playerData.xv
 
 		// render
 		canvas.clear()
-		stars.render()
+		ground.render()
+		player.render()
+		star.render()
 	}
 </script>
 </html>
