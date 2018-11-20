@@ -155,6 +155,10 @@ var GameSquare = {
 			this.height = props.height
 			this.x = props.x
 			this.y = props.y
+			this.frame = 0
+			this.frames = []
+			this.loop = false
+			this.runningAnimation = false
 		}
 
 		render() {
@@ -245,6 +249,26 @@ var GameSquare = {
 		swichCostume(url) {
 			this.url = url
 			this.image.src = url
+		}
+
+		playAnimation(frames, loop) {
+			this.frames = frames
+			this.frame = 0
+			this.loop = loop || false
+			this.runningAnimation = true
+		}
+
+		updateAnimationFrame() {
+			if (this.runningAnimation) {
+				this.frame++
+			}
+		}
+
+		stopAnimation() {
+			this.runningAnimation = false
+			this.frames = []
+			this.loop = false
+			this.frame = 0
 		}
 	},
 
