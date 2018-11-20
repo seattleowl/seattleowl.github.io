@@ -256,13 +256,13 @@ var GameSquare = {
 			this.frame = 0
 			this.loop = loop || false
 			this.runningAnimation = true
-			this.image.url = this.frames[this.frame]
+			this.image.src = this.frames[this.frame]
 		}
 
 		updateAnimationFrame() {
 			if (this.runningAnimation) {
 				this.frame++
-				this.image.url = this.frames[this.frame]
+				this.image.src = this.frames[this.frame]
 			}
 		}
 
