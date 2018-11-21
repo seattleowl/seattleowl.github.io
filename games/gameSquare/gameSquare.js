@@ -262,6 +262,14 @@ var GameSquare = {
 		updateAnimationFrame() {
 			if (this.runningAnimation) {
 				this.frame++
+				if (this.frame == this.frames.length) {
+					if (this.loop) {
+						this.frame = 0
+					} else {
+						this.stopAnimation
+						return
+					}
+				}
 				this.image.src = this.frames[this.frame]
 			}
 		}
