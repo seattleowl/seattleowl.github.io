@@ -343,3 +343,12 @@ window.addEventListener("mouseup", function(e) {
 	gameSquareSystem.input.mouse = false
 })
 
+window.addEventListener("touchstart", function(e) {
+	gameSquareSystem.input.mouse = true
+})
+
+window.addEventListener("touchend", function(e) {
+	gameSquareSystem.input.mouse = true
+	gameSquareSystem.input.mouseX = e.clientX - gameSquareSystem.ctx.element.offsetLeft
+	gameSquareSystem.input.mouseY = e.clientY - gameSquareSystem.ctx.element.offsetTop
+})
