@@ -3,14 +3,13 @@
     
     ------------------------------
     Feel free to use any code found in this file,
-    just make sure to use GameSquare, witch can be found at http://seattleowl.com/games/gameSquare/gameSquare.js.
-    (else it dosen't work.)
+    just make sure to import GameSquare, witch can be found at http://seattleowl.com/games/gameSquare/gameSquare.js.
 
     This program use my free game engine, GameSquare, found at the link above.
-    To play this game, go to http://seattleowl.com/games/gameSquare/.
+    To play this game, go to http://seattleowl.com/games/gameSquare/matchingGame.
 
 
-    Thank you.
+    Thank you for reading.
 
      --Owen
 */
