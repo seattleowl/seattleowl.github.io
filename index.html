@@ -3,156 +3,30 @@
 <head>
 	<title>Seattleowl</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="images/s.png">
-	<style type="text/css">
-		html {
-			background-color: #252525;
-			padding: 0;
-			margin: 0;
-			font-family: Futura
-		}
-		#header {
-			background-color: #4A4A4A;
-			height: 150px;
-			width: 100%;
-			box-shadow: 0px 0px 10px grey;
-		}
-		.headeritem {
-			padding: 20px;
-			color: lightgray;
-			text-decoration: none;
-			cursor: pointer;
-		}
-		#display {
-			padding-top: 40px;
-			/*
-			height: calc(100% - 150px);
-			background-color: #000;
-			*/
-			height: 550px;
-			width: 100%;
-			border: none;
-			
-		}
-		a .headeritem {
-			margin-bottom: 50px;
-		}
-		#games {
-			display: none;
-			background-color: #191919;
-			border-radius: 4px;
-			box-shadow: 0px 0px 10px grey;
-			width: 200px;
-			position: absolute;
-			left: 160px;
-			top: 160px;
-		}
-		#games a {
-			display: block;
-			padding: 15px 15px;
-			cursor: pointer;
-			color: lightgray;
-		}
-	</style>
+	<link rel="stylesheet" href="mainSite.css">
 </head>
 <body>
 	<div id='header'>
-		<img src="images/s.png" width="100" height="100" id="logo" class="headeritem">
-		<a onclick="toggleMenu('games')" class="headeritem">Games</a>
-		<div id='games'>
-			<a onclick="switchView('https://scratch.mit.edu/projects/embed/191085706/'); hideMenu('games')">Polyfeld</a>
-			<a onclick="switchView('/games/platformer/'); hideMenu('games')">Platformer</a>
-			<a onclick="switchView('http://scratch.mit.edu/projects/embed/194792001/?autostart=false'); hideMenu('games')">The Scratches Boss Fight</a>
-		</div>
-		<!-- <a onclick="openUsf()" class="headeritem">Valt</a> -->
-		<a onclick="switchView('/parks/')" class="headeritem">Frog Hollow Park Guide</a>
-
+		<a><img src="images/s.png" id="logo" class="headeritem"></a>
+		<a class="headeritem">Games</a>
+		<a class="headeritem">About me</a>
+		<a class="headeritem">GameSquare</a>
+		<a class="headeritem" href="mailto:leggett.owen@gmail.com">Contact me</a>
+		<a class="headeritem" href="http://leggett.org">leggett.org</a>
 	</div>
-	<iframe src="games/platformer/index.html" id="display" allowtransparency="true"></iframe>
+	<img src="images/CodeImage.png" class="imageLeft" id="frontPageImage">
+	<p>
+		<h2>Welcome</h2>
+		Hello.<br>
+		So you found my corner of the internet.<br>
+		Welcome to seattleowl.com,<br>
+		This is where all of my games are.<br>
+		Check them out <a href="games/">here</a>.<br><br>
+
+		Looking for a free javascript game engine? Try <a href="games/gameSquare/">GameSquare</a>.<br>
+	</p>
 </body>
 <script type="text/javascript">
-	function setCookie(cname,cvalue,exdays) {
-	    var d = new Date();
-	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	    var expires = "expires=" + d.toGMTString();
-	    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-	}
-
-	function getCookie(cname) {
-	    var name = cname + "=";
-	    var decodedCookie = decodeURIComponent(document.cookie);
-	    var ca = decodedCookie.split(';');
-	    for(var i = 0; i < ca.length; i++) {
-	        var c = ca[i];
-	        while (c.charAt(0) == ' ') {
-	            c = c.substring(1);
-	        }
-	        if (c.indexOf(name) == 0) {
-	            return c.substring(name.length, c.length);
-	        }
-	    }
-	    return "";
-	}
-
-	var popup;
-	function openUsf() {
-		popup = window.open('usf.html', '_blank');
-		setTimeout(function() { popup.postMessage("win", "*")}, 1000);
-	}
-
-	window.addEventListener('message',function(event) {
-			if (event.data == 'unlock') {
-				alert('unlocked!');
-				setCookie("valtOpen", "true", 1)
-			}
-	},false);
-
-	var link = location.href;
-	function toggleMenu(id) {
-		if (document.getElementById(id).style.display == 'none') {
-			document.getElementById(id).style.display = 'block';
-		} else {
-			document.getElementById(id).style.display = 'none';
-		}
-	}
-	function hideMenu(id) {
-		document.getElementById(id).style.display = 'none';
-	}
-	function getHashtag() {
-		var index = 0
-		var inHash = false
-		var hash = ""
-		var letter = ''
-		for (var i = 0; i < link.length; i++) {
-			letter = link[index]
-			if (inHash) {
-				hash += letter
-			}
-
-			if (letter == '#') {
-				inHash = true
-			}
-			index += 1
-		}
-		return hash
-	}
-	function switchView(sorce) {
-		document.getElementById('display').src = sorce
-	}
-	var hashtag = getHashtag();
-	switch (hashtag) {
-		case 'valt':
-			if (getCookie("valtOpen") == "true") {
-				location.href = "/valt.html"
-			} 
-		case 'div':
-			location.href = "/new.html"
-	}
-
-	var passwordEntered = {"p": false, "a": false, "c": false, "k": false, "g": false, "e": false, count: 0}
-
-	window.addEventListener("keydown", function(e) {
-		if (passwordEntered[e.key] == false && passwordEntered[passwordEntered.count] == e.key)
-	    	passwordEntered[e.key] = true;
-	})
+	
 </script>
 </html>
