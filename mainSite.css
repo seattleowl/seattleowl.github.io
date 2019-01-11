@@ -44,3 +44,9 @@ a {
     color: rgb(0, 132, 255);
     text-decoration: none;
 }
+
+.centerX {
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+}
