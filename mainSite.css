@@ -49,5 +49,5 @@ a {
     text-align: center;
     justify-content: center;
     vertical-align: middle;
-    height: 100%;
+    height: calc(100vh - 106px);
 }
