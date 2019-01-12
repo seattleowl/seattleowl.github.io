@@ -4,8 +4,8 @@ var gameSquareSystem = {
 	ctx: undefined,
 	update: function() {
 		GameSquare.updateLoopCallback()
+		gameSquareSystem.tick++
 		requestAnimationFrame(gameSquareSystem.update)
-		this.tick++
 	},
 
 	stopLoop: function() {
