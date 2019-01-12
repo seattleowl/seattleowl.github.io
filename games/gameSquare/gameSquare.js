@@ -5,6 +5,7 @@ var gameSquareSystem = {
 	update: function() {
 		GameSquare.updateLoopCallback()
 		requestAnimationFrame(gameSquareSystem.update)
+		this.tick++
 	},
 
 	stopLoop: function() {
@@ -14,7 +15,9 @@ var gameSquareSystem = {
 	input: {
 		mouseX: 0,
 		mouseY: 0
-	}
+	},
+	
+	tick: 0
 }
 
 var GameSquare = {
@@ -159,6 +162,7 @@ var GameSquare = {
 			this.frames = []
 			this.loop = false
 			this.runningAnimation = false
+			this.speed = 1
 		}
 
 		render() {
@@ -251,8 +255,9 @@ var GameSquare = {
 			this.image.src = url
 		}
 
-		playAnimation(frames, loop) {
+		playAnimation(frames, loop, speed) {
 			this.frames = frames
+			this.speed = speed || 2
 			this.frame = 0
 			this.loop = loop || false
 			this.runningAnimation = true
@@ -261,7 +266,9 @@ var GameSquare = {
 
 		updateAnimationFrame() {
 			if (this.runningAnimation) {
-				this.frame++
+				if (gameSquareSystem.tick / 2 == Math.round(gameSquareSystem.tick / 2)) {
+					this.frame++
+				}
 				if (this.frame == this.frames.length) {
 					if (this.loop) {
 						this.frame = 0
