@@ -1,7 +1,7 @@
 [
-    {"name": "Irving"},
-    {"name": "Evie"},
-    {"name": "Buka"},
-    {"name": "Jack"},
-    {"name": "Maison"}
+    {"title": "New news page!"},
+    {"title": "Website Updated"},
+    {"title": "New <a href='https://seattleowl/games'>Games Page</a>!"},
+    {"title": "Jack"},
+    {"title": "Maison"}
 ]
