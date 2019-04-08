@@ -41,11 +41,12 @@ var GameSquare = {
 			this.width = props.width
 			this.height = props.height
 			this.color = props.color
+			this.visable = props.visable || true
 		}
 
 		render() {
 			this.ctx.fillStyle = this.color
-			this.ctx.fillRect(this.x, this.y, this.width, this.height)
+			if (this.visable) this.ctx.fillRect(this.x, this.y, this.width, this.height)
 			this.ctx.fillStyle = "black"
 		}
 
@@ -138,12 +139,13 @@ var GameSquare = {
 			this.y = props.y
 			this.color = props.color
 			this.text = props.text
+			this.visable = props.visable || true
 		}
 
 		render() {
 			this.ctx.fillStyle = this.color
 			this.ctx.font = "30px Arial"
-			this.ctx.fillText(this.text, this.x, this.y)
+			if (this.visable) this.ctx.fillText(this.text, this.x, this.y)
 			this.ctx.fillStyle = "black"
 		}
 	},
@@ -163,10 +165,11 @@ var GameSquare = {
 			this.loop = false
 			this.runningAnimation = false
 			this.speed = 1
+			this.visable = props.visable || true
 		}
 
 		render() {
-			this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
+			if (this.visable) this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
 		}
 
 		clone() {
