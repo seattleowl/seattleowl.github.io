@@ -8,9 +8,16 @@ class ClassMod {
         mod.callback(obj)
     }
 }
-
+function getMap() {
+    try {
+        var map = new GamepadMap(0).getMap()
+    } catch (e) {
+        var map = {axis: {x: GameSquare.getInput("ArrowRight") + GameSquare.getInput("ArrowLeft") * -1, y: GameSquare.getInput("ArrowDown") + GameSquare.getInput("ArrowUp") * -1}, buttons: {y: GameSquare.getInput("z"), b: GameSquare.getInput("x")}}
+    }
+    return map
+}
 const Inneractable = new ClassMod(function (obj) {
-    obj.checkInnneract = function (character, map = new GamepadMap(0).getMap(), button = "y") {
+    obj.checkInnneract = function (character, map = getMap(), button = "y") {
         if (this.colCheck(character) != null && map.buttons[button]) {
             return true
         }
@@ -120,7 +127,7 @@ class Player extends ScrollingSprite {
     }
 
     update() {
-        var map = new GamepadMap(0).getMap()
+        var map = getMap()
 
         if (map.axis.x > 0.5) {
             this.x += this.speed
