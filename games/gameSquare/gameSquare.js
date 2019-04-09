@@ -323,14 +323,12 @@ var GameSquare = {
 
 	preloadImages(...urls) {
 		var elements = []
-		let index = 0
 		while (urls.length) {
 			let element = document.createElement("img")
-			element.src = urls[index]
-			element.style.visibility = "hidden"
+			element.src = urls[0]
+			element.style.display = "none"
 			elements.push(element)
 			urls.shift()
-			index++
 		}
 		elements.forEach((element) => {
 			document.body.appendChild(element)
