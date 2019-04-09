@@ -244,7 +244,7 @@ class Mailbox extends ScrollingSprite {
 // SPRITES
 var player = new Player({x: 0, y: 0, speed: 3})
 var packeges = new GameSquare.GameSquareGroupObject([new Packege({x: 300, y: 300})])
-var background = new ScrollingSprite({x: -400, y: -250, width: 3200, height: 2000, url: "background.svg"})
+var background = new ScrollingSprite({x: -400, y: -250, width: 3200, height: 2000, url: "Background.svg"})
 var mailboxes = new GameSquare.GameSquareGroupObject([new Mailbox({x: 300, y: 300, color: "Red"}), new Mailbox({x: 1750, y: 280, color: "Yellow"}), new Mailbox({x: 1730, y: 1230, color: "Green"}), new Mailbox({x: 290, y: 1210, color: "Blue"})])
 var scoreText = new GameSquare.GameSquareTextObject({x: 10, y: 30, text: "Score: 0"})
 
