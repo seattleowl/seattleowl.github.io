@@ -3,7 +3,8 @@ var gameData = [
     {name: "Matching Game", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/matchingGame"},
     {name: "Shooter", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/shooter"},
     {name: "Basic GS Platformer", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/platformer"},
-    {name: "Basic Platformer", language: "js", url: "http://seattleowl.com/games/gameSquare/matchingGame"},
+    {name: "Basic Platformer", language: "js", url: "http://seattleowl.com/games/platformer"},
+    {name: "Delivery Boy", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/Mailman-Game"},
 
     // scratch
     {name: "You Need... A Mocha.", language: "Scratch", url: "https://scratch.mit.edu/projects/276669361/"},
