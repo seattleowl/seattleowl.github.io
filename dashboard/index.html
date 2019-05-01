@@ -1,3 +1,21 @@
 <html>
-    yeet
+    <head>
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <p id="message">Hmm... I don' think your <a href="../login/">signed in</a>...</p>
+    </body>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCOl5X_iwUBuvzFn1ewaVMKRmWhyadTUCg",
+            authDomain: "seattleowl-database.firebaseapp.com",
+            databaseURL: "https://seattleowl-database.firebaseio.com",
+            projectId: "seattleowl-database",
+            storageBucket: "seattleowl-database.appspot.com",
+            messagingSenderId: "393896566440"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="main.js"></script>
 </html>
