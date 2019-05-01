@@ -1,7 +1,13 @@
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        document.getElementById("message").innerHTML = "Hello, " + user.displayName
-    } else {
-        // No user is signed in.
-    }
-})
+window.onload = () => {
+    setTimeout(() => {
+        var user = firebase.auth().currentUser;
+        console.log("Varible: ", user, ", Raw: ", firebase.auth().currentUser)
+        if (user) {
+            let message = document.getElementById("message")
+            message.innerHTML = "Hello, " + user.displayName
+        } else {
+            let message = document.getElementById("message")
+            message.innerHTML = "Hmm... I don't think your <a href='../login/'>signed in</a>..."
+        }
+    }, 1000)
+}
