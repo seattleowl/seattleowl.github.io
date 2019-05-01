@@ -1,15 +1,16 @@
 <html>
     <head>
-        <title>Log in</title>
+        <title>Sign-up</title>
         <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     </head>
 
     <body>
-        <div id="sign-in">
-            <input type="text" id="email" placeholder="Email">
-            <input type="password" id="password" placeholder="Password">
-            <button onclick="signIn(document.getElementById('email').value, document.getElementById('password').value)">Sign In →</button>
+        <div id="sign-up">
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="text" id="username" placeholder="Username"><br>
+            <input type="password" id="password" placeholder="Password"><br>
+            <button onclick="signUp(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('username').value)">Sign Up →</button>
         </div>
     </body>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
@@ -25,11 +26,15 @@
     };
     firebase.initializeApp(config);
 
-    // Sign in
-    function signIn(email, password) {
-        firebase.auth().signInWithEmailAndPassword(email, password)
+    // Sign up
+    function signUp(email, password, username) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
-                location.href = "../dashboard"
+                let user = firebase.auth().currentUser
+                user.updateProfile({
+                    displayName: username
+                })
+                location.href = "../../dashboard"
             })
             .catch(function(error) {
                 // Handle Errors here.
