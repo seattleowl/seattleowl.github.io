@@ -1,10 +1,7 @@
-window.onload = () => {
-    var user = firebase.auth().currentUser;
-
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        let message = document.getElementById("message")
-        message.innerHTML = user.displayName
+        document.getElementById("message").innerHTML = "Hello, " + user.displayName
     } else {
-        
+        // No user is signed in.
     }
-}
+})
