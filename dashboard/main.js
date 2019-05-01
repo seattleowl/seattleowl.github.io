@@ -7,7 +7,7 @@ window.onload = () => {
             message.innerHTML = "Hello, " + user.displayName
         } else {
             let message = document.getElementById("message")
-            message.innerHTML = "Hmm... I don't think your <a href='../login/'>signed in</a>..."
+            message.innerHTML = "Hmm... I don't think your <a href='../logIn/'>signed in</a>..."
         }
-    }, 1000)
+    }, 900)
 }
