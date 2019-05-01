@@ -1,14 +1,68 @@
-<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCOl5X_iwUBuvzFn1ewaVMKRmWhyadTUCg",
-    authDomain: "seattleowl-database.firebaseapp.com",
-    databaseURL: "https://seattleowl-database.firebaseio.com",
-    projectId: "seattleowl-database",
-    storageBucket: "seattleowl-database.appspot.com",
-    messagingSenderId: "393896566440"
-  };
-  firebase.initializeApp(config);
-</script>
+<html>
+    <head>
+        <title>Firebase Users test</title>
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    </head>
+
+    <body>
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCOl5X_iwUBuvzFn1ewaVMKRmWhyadTUCg",
+        authDomain: "seattleowl-database.firebaseapp.com",
+        databaseURL: "https://seattleowl-database.firebaseio.com",
+        projectId: "seattleowl-database",
+        storageBucket: "seattleowl-database.appspot.com",
+        messagingSenderId: "393896566440"
+    };
+    var uiConfig = {
+        callbacks: {
+            signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+            // User successfully signed in.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+            },
+            uiShown: function() {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+            }
+        },
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url.
+        privacyPolicyUrl: '<your-privacy-policy-url>'
+    };
+    firebase.initializeApp(config);
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    ui.start('#firebaseui-auth-container', {
+        signInOptions: [
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+        // Other config options...
+    });
+
+    ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</html>
