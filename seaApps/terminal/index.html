@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Opening app...</title>
+        <style id="stylesheet">
+            #app {
+                background-color: #222;
+                color: rgb(60, 212, 60);
+                width: 100%;
+                height: 100%;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            #input:focus {
+                outline: none;
+            }
+            body {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="appContainer" style="display:none;">
+            <div id="app">
+                {HEX TERMINAL}
+                <div id="content" spellcheck="false">< TERMINAL STARTED</div>
+                <div>><text id="input" contenteditable="true" spellcheck="false"></text></div>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="../main.js"></script>
+<script src="jQuery.js"></script>
+<script src="../jquery.ajax-cross-origin.min.js"></script>
+<script>
+    var app = new App("HEX Terminal")
+    app.loadElement("appContainer")
+    app.loadCSS("stylesheet")
+
+    // Toolkit
+    const download = (filename, text) => {
+        var element = app.document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        app.document.body.appendChild(element);
+
+        element.click();
+
+        app.document.body.removeChild(element);
+    }
+    $.ajaxSetup({
+        crossOrigin: true
+    })
+
+    // App scripts
+    const commands = {hmod: (fc) => {
+        if (fc[1].includes("download")) {
+            app.document.getElementById("content").innerHTML += "<br>< Downloading file..."
+            $.getJSON("modules/" + fc[2] + ".json", null, (userJson) => {
+                $.getJSON(userJson.content, null, (data) => {
+                    download(userJson.name + ".hmod", data)
+                })
+            })
+        }
+    }}
+    const handleEnter = () => {
+        let inputCommand = app.document.getElementById("input").innerHTML
+        app.document.getElementById("content").innerHTML += "<br>> " + inputCommand
+
+        let fullCommand = inputCommand.split(" ")
+        let commandNamespace = fullCommand[0]
+        if (commands[commandNamespace]) {
+            commands[commandNamespace](fullCommand)
+        } else {
+            app.document.getElementById("content").innerHTML += `<br>< Error: ${commandNamespace} is not a vaild command.`
+        }
+
+        app.document.getElementById("input").innerHTML = ""
+    }
+    app.windowObject.addEventListener("keydown", (e) => {
+        if (e.key == "Enter" && app.document.activeElement == app.document.getElementById("input")) {
+            e.preventDefault()
+            handleEnter()
+        }
+    })
+</script>
