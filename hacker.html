@@ -1,0 +1,19 @@
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ9wySnaNHtQK2C7AETab6Jn1jjhhwJgmkVkZ6cxcDObRoAmLlAg">
+I HACK YE COMPUTER!!!!
+
+<script>
+  function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  }
+  download("virus.txt", "SUPER JOKE!!!!")
+
+</script>
