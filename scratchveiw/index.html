@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>ScratchVeiw</title>
+        <style>
+            body {
+                overflow: hidden;
+                background-color: rgb(233, 241, 253)
+            }
+
+            .slide {
+                display: none;
+                opacity: 0;
+                transition: opacity 1s;
+                color: #575e75;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 100px;
+            }
+
+            .slide.selected {
+                display: block;
+                opacity: 1;
+            }
+
+            input {
+                background-color: initial;
+                border: none;
+                width: 15%;
+                color: #575e75;
+                font-weight: bold;
+            }
+
+            input::placeholder {
+                font-weight: normal;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            button {
+                background-color: rgb(73, 143, 255);
+                border-radius: .25rem;
+                border: none;
+                color: rgb(248, 248, 248);
+                font-weight: bold;
+                padding: 10px;
+            }
+
+            button:focus {
+                outline: none;
+            }
+
+            #button {
+                text-align: center;
+                margin-top: 10px;
+            }
+        </style>
+        <link rel="shortcut icon" href="https://scratch.mit.edu/favicon.ico">
+    </head>
+    <body>
+        <div id="link" class="slide selected">
+            Find the project you would like to share, then click "Copy Link" and copy the top link.<br>
+            When you are done click the next button
+        </div>
+        <div id="preferences" class="slide">
+
+        </div>
+        <div id="dowload" class="slide">
+            DIV two
+        </div>
+        <div id="button">
+            <button id="next">Next</button>
+        </div>
+    </body>
+    <script>
+        const slideStarts = [
+            () => {
+                navigator.clipboard.readText().then(
+                (clipText) => {
+                    console.log(clipText)
+                })
+            }
+        ]
+    </script>
+</html>
