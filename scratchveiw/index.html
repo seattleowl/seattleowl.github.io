@@ -71,7 +71,7 @@
             DIV two
         </div>
         <div id="button">
-            <button id="next">Next</button>
+            <button id="next" onclick="next()">Next</button>
         </div>
     </body>
     <script>
@@ -83,5 +83,11 @@
                 })
             }
         ]
+        let silde = 0
+
+        const next = () => {
+            slideStarts[slide]()
+            slide++
+        }
     </script>
 </html>
