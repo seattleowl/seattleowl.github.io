@@ -1,3 +1,5 @@
+@import "https://seattleowl.com/pointer.js/pointer.css";
+
 html, body {
     background-color: #252525;
     padding: 0;
@@ -14,7 +16,7 @@ body {
     background-color: #4A4A4A;
     height: 85px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
 }
