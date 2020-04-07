@@ -46,3 +46,7 @@ function updateList() {
 }
 
 window.onload = updateList
+
+init_pointer({
+    ringClickSize: 10
+})
