@@ -3,7 +3,8 @@ var gameData = [
     {name: "Matching Game", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/matchingGame"},
     {name: "Shooter", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/shooter"},
     {name: "Basic GS Platformer", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/platformer"},
-    {name: "Basic Platformer", language: "js", url: "http://seattleowl.com/games/platformer"},
+    {name: "Basic Platformer", language: "JavaScript", url: "http://seattleowl.com/games/platformer"},
+    {name: "Deck Master", language: "JavaScript, a ton of CSS, and HTML", url: "http://seattleowl.com/deck-master"},
     {name: "Delivery Boy", language: "GameSquare", url: "http://seattleowl.com/games/gameSquare/Mailman-Game"},
 
     // scratch
@@ -13,5 +14,5 @@ var gameData = [
     {name: "Octi-simulation", language: "Scratch", url: "https://scratch.mit.edu/projects/268090301/"},
     {name: "Jasoka National Park", language: "Scratch", url: "https://scratch.mit.edu/projects/218423385/"},
 
-    // 
+    //
 ]
