@@ -5,7 +5,7 @@
     },
     "overrides": [{
             "predicate": {
-                "custom_model_data": 1512100
+                "custom_model_data": 1
             },
             "model": "minecraft:item/knowledge_book"
         }
