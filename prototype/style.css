@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;900&display=swap');
+
+:root {
+    --color-gray-1: #333333;
+    --color-gray-2: #4F4F4F;
+    --color-gray-3: #828282;
+    --color-white: #a5a5a5;
+    --color-purple-1: #9200AA;
+    --color-purple-2: #C22FDB;
+}
+
+body {
+    margin: 0;
+    font-family: Jost, Arial, Helvetica, sans-serif;
+    background-color: var(--color-gray-1);
+    color: var(--color-white);
+    font-size: 1em;
+}
+
+#header {
+    background-image: linear-gradient(90deg, var(--color-purple-2), var(--color-purple-1));
+    padding: 10px;
+    color: var(--color-gray-1);
+    transition: height 500ms, padding 500ms;
+    height: 74px;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+}
+
+#header span {
+    position: relative;
+    margin-left: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#header span.title {
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 1.3em;
+    margin-right: 10px;
+    cursor: default;
+}
+
+#header img {
+    width: 64px;
+    transition: width 500ms;
+    position: relative;
+    left: 0;
+}
+
+#header.minimized {
+    background-image: linear-gradient(90deg, var(--color-purple-1), var(--color-purple-1));
+    padding: 10px;
+    height: 42px;
+}
+
+#header.minimized span:not(.title) {
+    display: none;
+}
+
+#header.minimized span.title {
+    top: -8px;
+}
+
+#header.minimized img {
+    width: 32px;
+}
+
+#app {
+    padding: 10px;
+    width: 580px;
+    margin: auto;
+    margin-top: 74px;
+    text-align: center;
+}
+
+.post {
+    height: max-content;
+    width: 580px;
+    background-color: var(--color-purple-2);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 5px 3px transparent;
+    transition: box-shadow 200ms;
+    text-align: start;
+    cursor: pointer;
+}
+
+.post:hover {
+    box-shadow: 0 5px 3px var(--color-gray-2);
+}
+
+.post h2 {
+    color: var(--color-gray-1);
+    padding-left: 20px;
+    width: 100%;
+}
+
+.post img {
+    width: 580px;
+    border-radius: 0 0 5px 5px;
+}
+
+a {
+    color: var(--color-purple-2);
+}
