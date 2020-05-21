@@ -1,46 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163838027-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-163838027-1');
-	</script>
-
-	<title>Seattleowl</title>
-	<link rel="icon" type="image/png" sizes="32x32" href="images/s.png">
-	<link rel="stylesheet" href="mainSite.css">
+    <title>Seattleowl</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo32x.png">
 </head>
 <body>
-	<div id='header'>
-		<a><img src="images/s.png" id="logo" class="headeritem"></a>
-		<a href="games/" class="headeritem">Games</a>
-		<a class="headeritem">About me</a>
-		<a class="headeritem">GameSquare</a>
-		<a class="headeritem" href="http://leggett.org">leggett.org</a>
-		<a class="headeritem" href="../logIn/index.html">Log in</a>
-		<a class="headeritem" href="../logIn/signup/index.html">Sign up</a>
-	</div>
-	<img src="images/CodeImage.png" class="imageLeft" id="frontPageImage">
-	<p>
-		<h2>Welcome</h2>
-		Hello.<br>
-		So you found my corner of the internet.<br>
-		Welcome to seattleowl.com,<br>
-		This is where all of my games are.<br>
-		Check them out <a href="games/">here</a>.<br><br>
-
-		Looking for a free javascript game engine? Try <a href="/GameSquare/">GameSquare</a>.<br>
-	</p>
+    <div id="header">
+        <img src="images/logo32x.png">
+        <span class="title" onclick='location.href = "https://seattleowl.com"'>Seattleowl</span>
+        <span onclick='location.href = "./?cat=games"'>Games</span>
+        <span onclick='location.href = "./?cat=posts"'>Posts</span>
+    </div>
+    <div id="app">
+        <p>
+            Hello! Welecome to my corner of the internet.
+            You can play my games below.
+        </p> 
+    </div>
 </body>
-<script src="https://seattleowl.com/pointer.js/pointer.js"></script>
-<script type="text/javascript">
-	init_pointer({
-		ringClickSize: 10
-	})
-</script>
+<script src="src/ajax.js"></script>
+<script src="src/main.js"></script>
 </html>

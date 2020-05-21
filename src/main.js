@@ -9,11 +9,14 @@ window.onscroll = () => {
     }
 }
 
+let catagory = new URLSearchParams(location.search).get("cat")
+
 ajax("https://seattleowl-cms.herokuapp.com/content").then((data) => {
     let app = document.getElementById("app")
 
-    data.posts.forEach(post => {
+    if (catagory != "games") data.posts.forEach(post => {
         let postEl = document.createElement("div")
+        postEl.onclick = () => { location.href = "./post.html?p=" + post.title.toLowerCase().replace(/ /g, "-").replace(/\./g, "-").replace(/!/g, "") }
         postEl.classList.add("post")
 
         let header = document.createElement("h2")
@@ -27,7 +30,7 @@ ajax("https://seattleowl-cms.herokuapp.com/content").then((data) => {
         app.appendChild(postEl)
     })
 
-    data.games.forEach(game => {
+    if (catagory != "posts") data.games.forEach(game => {
         let postEl = document.createElement("div")
         postEl.onclick = () => {location.href = game.url}
         postEl.classList.add("post")
