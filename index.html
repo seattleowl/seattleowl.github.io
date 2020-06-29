@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Seattleowl</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/logo32x.png">
-</head>
-<body>
-    <div id="header">
-        <img src="images/logo32x.png">
-        <span class="title" onclick='location.href = "https://seattleowl.com"'>Seattleowl</span>
-        <span onclick='location.href = "./?cat=games"'>Games</span>
-        <span onclick='location.href = "./?cat=posts"'>Posts</span>
-    </div>
-    <div id="app">
-        <p>
-            Hello! Welecome to my corner of the internet.
-            You can play my games below.
-        </p> 
-    </div>
-</body>
-<script src="src/ajax.js"></script>
-<script src="src/main.js"></script>
+	<head>
+		<title>Seattleowl</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="images/logo32x.png" />
+	</head>
+	<body>
+		<div id="header">
+			<img src="images/logo32x.png" />
+			<span class="title">Seattleowl</span>
+		</div>
+		<div id="app">
+			<!-- 
+				<web-post
+					post-title="Template"
+					post-img="image-name"
+					post-url="https://seattleowl.com"
+				></web-post>
+			 -->
+			<web-post
+				post-title="Mastermind"
+				post-img="mastermind"
+				post-url="https://seattleowl.com/mastermind"
+			></web-post>
+			<web-post
+				post-title="Deck Master"
+				post-img="deck-master"
+				post-url="https://seattleowl.com/deck-master"
+			></web-post>
+		</div>
+	</body>
+	<script src="src/main.js"></script>
 </html>
