@@ -1,0 +1,25 @@
+{
+	"posts": [
+		{
+			"title": "Mastermind",
+			"imageName": "mastermind",
+			"link": "https://seattleowl.com/mastermind",
+			"tags": ["puzzle", "online", "2player"],
+			"overrides": [
+				{
+					"tags": ["online", "2player"],
+					"override": {
+						"title": "Mastermind (Online)",
+						"link": "https://io.seattleowl.com/mastermind"
+					}
+				}
+			]
+		},
+		{
+			"title": "Deck Master",
+			"imageName": "deck-master",
+			"link": "https://seattleowl.com/deck-master",
+			"tags": ["stratergy", "singleplayer"]
+		}
+	]
+}

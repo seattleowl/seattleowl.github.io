@@ -1,6 +1,8 @@
 let lastY = window.scrollY;
 let header = document.getElementById("header");
 
+let search = /^.*\/search\/?(\?.*)?$/.test(location.href);
+
 window.onscroll = () => {
 	if (window.scrollY > Math.min(lastY, 130)) {
 		header.classList.add("minimized");
@@ -13,22 +15,22 @@ class HTMLPostElement extends HTMLElement {
 	constructor() {
 		super();
 
-		let shadow = this.attachShadow({ mode: "open" });
+		this.shadow = this.attachShadow({ mode: "open" });
 
-		let div = document.createElement("div");
-		div.classList.add("post");
-		shadow.appendChild(div);
+		this.divEl = document.createElement("div");
+		this.divEl.classList.add("post");
+		this.shadow.appendChild(this.divEl);
 
-		let title = document.createElement("h2");
-		title.innerHTML = this.postTitle;
-		div.appendChild(title);
+		this.titleEl = document.createElement("h2");
+		if (this.postTitle) this.titleEl.innerHTML = this.postTitle;
+		this.divEl.appendChild(this.titleEl);
 
-		let img = document.createElement("img");
-		img.src = `images/posts/${this.postImage}.png`;
-		div.appendChild(img);
+		this.imgEl = document.createElement("img");
+		if (this.postImage) this.imgEl.src = `images/posts/${this.postImage}.png`;
+		this.divEl.appendChild(this.imgEl);
 
-		let style = document.createElement("style");
-		style.innerHTML = `.post {
+		this.styleEl = document.createElement("style");
+		this.styleEl.innerHTML = `.post {
 			height: max-content;
 			width: 580px;
 			background-color: var(--color-purple-2);
@@ -55,10 +57,10 @@ class HTMLPostElement extends HTMLElement {
 			width: 580px;
 			border-radius: 0 0 5px 5px;
 		}`;
-		shadow.appendChild(style);
+		this.shadow.appendChild(this.styleEl);
 
-		div.onclick = () => {
-			location.href = this.postUrl;
+		this.divEl.onclick = () => {
+			location.href = this.postLink;
 		};
 	}
 
@@ -70,9 +72,67 @@ class HTMLPostElement extends HTMLElement {
 		return this.getAttribute("post-img");
 	}
 
-	get postUrl() {
-		return this.getAttribute("post-url");
+	get postLink() {
+		return this.getAttribute("post-link");
+	}
+
+	set postTitle(v) {
+		this.setAttribute("post-title", v);
+		this.titleEl.innerHTML = this.postTitle;
+	}
+
+	set postImage(v) {
+		this.setAttribute("post-img", v);
+		this.imgEl.src =
+			(search ? "../" : "") + `images/posts/${this.postImage}.png`;
+	}
+
+	set postLink(v) {
+		this.setAttribute("post-link", v);
 	}
 }
 
 customElements.define("web-post", HTMLPostElement);
+
+fetch(search ? "../posts.json" : "posts.json")
+	.then((response) => response.json())
+	.then((data) => {
+		let posts = data.posts;
+		posts.forEach((post) => {
+			if (
+				!search ||
+				post.tags.includes(
+					new URLSearchParams(window.location.search).get("tag")
+				)
+			) {
+				let el;
+				let found = false;
+
+				post.overrides?.forEach((override) => {
+					if (
+						search &&
+						override.tags.includes(
+							new URLSearchParams(window.location.search).get("tag")
+						) &&
+						!found
+					) {
+						found = true;
+
+						el = new HTMLPostElement();
+						el.postTitle = override.override.title ?? post.title;
+						el.postImage = override.override.imageName ?? post.imageName;
+						el.postLink = override.override.link ?? post.link;
+					}
+				});
+
+				if (!found) {
+					el = new HTMLPostElement();
+					el.postTitle = post.title;
+					el.postImage = post.imageName;
+					el.postLink = post.link;
+				}
+
+				document.getElementById("app").appendChild(el);
+			}
+		});
+	});
