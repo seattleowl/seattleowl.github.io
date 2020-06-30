@@ -28,7 +28,7 @@ fs.readdir("../images/posts").then((files) => {
 				name: "tags",
 				message: "Post Tags:",
 				type: "checkbox",
-				choices: ["puzzle", "2player", "4player", "online", "stratergy"]
+				choices: ["puzzle", "2 player", "4 player", "online", "stratergy"]
 			}
 		])
 		.then((data) => {

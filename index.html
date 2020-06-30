@@ -6,9 +6,27 @@
 		<link rel="icon" href="images/logo32x.png" />
 	</head>
 	<body>
-		<div id="header">
+		<div
+			id="header"
+			onmouseleave="document.getElementById('tags').classList.remove('open')"
+		>
 			<img src="images/logo32x.png" />
 			<span class="title">Seattleowl</span>
+			<span onmouseover="document.getElementById('tags').classList.add('open')"
+				>Tags
+			</span>
+		</div>
+		<div
+			id="tags"
+			onmouseout="document.getElementById('tags').classList.remove('open')"
+			onmouseover="document.getElementById('tags').classList.add('open')"
+		>
+			<a href="search/?tag=online">Online</a>
+			<a href="search/?tag=2player">2 Player</a>
+			<a href="search/?tag=4player">4 Player</a>
+			<a href="search/?tag=singleplayer">Singleplayer</a>
+			<a href="search/?tag=puzzle">Puzzle</a>
+			<a href="search/?tag=stratergy">Stratergy</a>
 		</div>
 		<div id="app"></div>
 	</body>
