@@ -1,6 +1,12 @@
 {
 	"posts": [
 		{
+			"title": "Can You Escape Editor",
+			"imageName": "cye-editor",
+			"link": "https://seattleowl.com/cye-editor",
+			"tags": ["singleplayer"]
+		},
+		{
 			"title": "Mastermind",
 			"imageName": "mastermind",
 			"link": "https://seattleowl.com/mastermind",
@@ -20,12 +26,6 @@
 			"imageName": "deck-master",
 			"link": "https://seattleowl.com/deck-master",
 			"tags": ["stratergy", "singleplayer"]
-		},
-		{
-			"title": "Can You Escape Editor",
-			"imageName": "cye-editor",
-			"link": "https://seattleowl.com/cye-editor",
-			"tags": ["singleplayer"]
 		}
 	]
 }

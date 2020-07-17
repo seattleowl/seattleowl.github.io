@@ -41,7 +41,7 @@ fs.readdir("../images/posts").then((files) => {
 		.then((data) => {
 			console.log("Creating post...");
 			let posts = require("../posts.json");
-			posts.posts.push({
+			posts.posts.shift({
 				title: data.title,
 				imageName: data.img,
 				link: data.link,
