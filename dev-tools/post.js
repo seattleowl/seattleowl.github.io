@@ -34,14 +34,15 @@ fs.readdir("../images/posts").then((files) => {
 					"4 player",
 					"online",
 					"stratergy",
-					"singleplayer"
+					"singleplayer",
+					"tool"
 				]
 			}
 		])
 		.then((data) => {
 			console.log("Creating post...");
 			let posts = require("../posts.json");
-			posts.posts.shift({
+			posts.posts.unshift({
 				title: data.title,
 				imageName: data.img,
 				link: data.link,

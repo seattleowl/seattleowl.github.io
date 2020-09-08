@@ -1,1 +1,34 @@
-{"posts":[{"title":"Mastermind","imageName":"mastermind","link":"https://seattleowl.com/mastermind","tags":["puzzle","online","2player"],"overrides":[{"tags":["online","2player"],"override":{"title":"Mastermind (Online)","link":"https://io.seattleowl.com/mastermind"}}]},{"title":"Deck Master","imageName":"deck-master","link":"https://seattleowl.com/deck-master","tags":["stratergy","singleplayer"]}]}
+{
+	"posts": [
+		{
+			"title": "Magic Gardens",
+			"imageName": "magic-gardens",
+			"link": "https://seattleowl.com/magic-gardens",
+			"tags": ["stratergy", "singleplayer"]
+		},
+		{
+			"title": "MC Structure Builder",
+			"imageName": "mc-structure-builder",
+			"link": "https://seattleowl.com/mc-structure-builder",
+			"tags": ["tool"]
+		},
+		{
+			"title": "CYE Editor",
+			"imageName": "cye-editor",
+			"link": "https://seattleowl.com/cye-editor",
+			"tags": ["tool"]
+		},
+		{
+			"title": "Mastermind",
+			"imageName": "mastermind",
+			"link": "https://seattleowl.com/mastermind",
+			"tags": ["puzzle", "stratergy", "singleplayer"]
+		},
+		{
+			"title": "Deck Master",
+			"imageName": "deck-master",
+			"link": "https://seattleowl.com/deck-master",
+			"tags": ["stratergy", "singleplayer"]
+		}
+	]
+}
