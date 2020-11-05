@@ -30,12 +30,15 @@ fs.readdir("../images/posts").then((files) => {
 				type: "checkbox",
 				choices: [
 					"puzzle",
-					"2 player",
-					"4 player",
+					"2player",
+					"4player",
 					"online",
 					"stratergy",
 					"singleplayer",
-					"tool"
+					"tool",
+					"puzzleScript",
+					"javaScript",
+					"godot"
 				]
 			}
 		])

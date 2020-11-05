@@ -86,10 +86,9 @@ body {
 
 #tags {
 	opacity: 0;
-	transition: opacity 300ms;
 	pointer-events: none;
 	background-color: var(--color-gray-2);
-	position: fixed;
+	position: absolute;
 	top: 94px;
 	height: 200px;
 	width: 100vw;
@@ -98,10 +97,21 @@ body {
 	column-count: 6;
 	column-fill: auto;
 	column-gap: 20px;
+	cursor: pointer;
+	transition: opacity 300ms;
 }
 
 #tags a {
 	display: block;
+}
+
+#tags div {
+	display: inline-block;
+}
+
+#tags p {
+	margin: 5px 0 5px 0;
+	cursor: default;
 }
 
 #header:not(.minimized) + #tags.open {
