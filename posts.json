@@ -1,11 +1,6 @@
 {
 	"posts": [
 		{
-			"title": "Deck Master",
-			"imageName": "deck-master",
-			"link": "https://seattleowl.com/deck-master"
-		},
-		{
 			"title": "Jack`o`Lantern Inc.",
 			"imageName": "jack-o-lantern-inc",
 			"link": "https://www.puzzlescript.net/play.html?p=88c1f7434eb361c1cf9aa56901e8a9c9"
@@ -29,6 +24,11 @@
 			"title": "Mastermind",
 			"imageName": "mastermind",
 			"link": "https://seattleowl.com/mastermind"
+		},
+		{
+			"title": "Deck Master",
+			"imageName": "deck-master",
+			"link": "https://seattleowl.com/deck-master"
 		}
 	]
 }
