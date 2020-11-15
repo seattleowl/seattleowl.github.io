@@ -6,9 +6,9 @@
 			"link": "https://seattleowl.com/deck-master"
 		},
 		{
-			"title": "Esacpe Room Editor",
-			"imageName": "cye-editor",
-			"link": "https://seattleowl.com/cye-editor"
+			"title": "Mastermind",
+			"imageName": "mastermind",
+			"link": "https://seattleowl.com/mastermind"
 		},
 		{
 			"title": "Magic Gardens",
@@ -21,14 +21,14 @@
 			"link": "https://www.puzzlescript.net/play.html?p=88c1f7434eb361c1cf9aa56901e8a9c9"
 		},
 		{
+			"title": "Esacpe Room Editor",
+			"imageName": "cye-editor",
+			"link": "https://seattleowl.com/cye-editor"
+		},
+		{
 			"title": "MC Structure Builder",
 			"imageName": "mc-structure-builder",
 			"link": "https://seattleowl.com/mc-structure-builder"
-		},
-		{
-			"title": "Mastermind",
-			"imageName": "mastermind",
-			"link": "https://seattleowl.com/mastermind"
 		}
 	]
 }
