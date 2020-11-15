@@ -32,14 +32,6 @@ body {
 	margin: auto;
 	display: block;
 	margin-top: 100px;
-	box-shadow: none;
-	transform: translateY(0px);
-	transition: box-shadow 200ms, transform 200ms;
-}
-
-#img:hover {
-	box-shadow: 0 15px 80px rgba(78, 0, 139, 0.25);
-	transform: translateY(-5px);
 }
 
 #app {
