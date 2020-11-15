@@ -6,40 +6,8 @@
 		<link rel="icon" href="images/logo32x.png" />
 	</head>
 	<body>
-		<div
-			id="header"
-			onmouseleave="document.getElementById('tags').classList.remove('open')"
-		>
-			<img src="images/logo32x.png" />
-			<span class="title">Seattleowl</span>
-			<span onmouseover="document.getElementById('tags').classList.add('open')"
-				>Tags
-			</span>
-		</div>
-		<div
-			id="tags"
-			onmouseout="document.getElementById('tags').classList.remove('open')"
-			onmouseover="document.getElementById('tags').classList.add('open')"
-		>
-			<div>
-				<p>Players</p>
-				<a href="search/?tag=online">Online</a>
-				<a href="search/?tag=2player">2 Player</a>
-				<a href="search/?tag=4player">4 Player</a>
-				<a href="search/?tag=singleplayer">Singleplayer</a>
-			</div>
-			<div>
-				<p>Types of games</p>
-				<a href="search/?tag=puzzle">Puzzle</a>
-				<a href="search/?tag=stratergy">Stratergy</a>
-			</div>
-			<div>
-				<p>Languages</p>
-				<a href="search/?tag=javaScript">JavaScript</a>
-				<a href="search/?tag=puzzleScript">PuzzleScript</a>
-				<a href="search/?tag=godot">Godot</a>
-			</div>
-		</div>
+		<img src="images/logo.png" id="img" />
+		<span id="title">Seattleowl</span>
 		<div id="app"></div>
 	</body>
 	<script src="src/main.js"></script>
