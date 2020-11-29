@@ -150,6 +150,7 @@ a {
 	padding-left: 5px;
 	padding-right: 5px;
 	border-radius: 0;
+	cursor: pointer;
 }
 
 .post.about img.media:hover {
