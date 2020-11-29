@@ -49,8 +49,13 @@ a {
 	text-align: center;
 	display: block;
 	letter-spacing: 5px;
+<<<<<<< HEAD
 	padding-left: 5px;
 	font-weight: normal;
+=======
+	color: #888;
+	padding-left: 3px;
+>>>>>>> fbe08d737959a5e48a9209bdb2c0564e25100cf4
 }
 
 #img {
