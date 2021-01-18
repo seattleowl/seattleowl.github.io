@@ -19,7 +19,7 @@ body {
 }
 
 a {
-	color: var(--color-purple-2) !important;
+	color: var(--color-purple-2);
 	text-decoration: none !important;
 }
 
@@ -145,4 +145,20 @@ a {
 	padding: 50px;
 	padding-bottom: 0px;
 	height: calc(100% - 50px);
+}
+
+#banner {
+	position: fixed;
+	z-index: 500;
+	top: 0;
+	width: 100vw;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	display: block;
+}
+
+#banner.blm {
+	background-color: #141414;
+	color: white;
 }
