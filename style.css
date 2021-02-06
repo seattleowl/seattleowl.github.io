@@ -162,3 +162,8 @@ a {
 	background-color: #141414;
 	color: white;
 }
+
+#banner.valentines {
+	background-color: #fc9c9c;
+	color: black;
+}
